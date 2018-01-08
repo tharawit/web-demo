@@ -27,6 +27,19 @@
 	 .tr-over:hover{
 		background:#F5F5F5;
 	 }
+	 /* animate noti */
+	 @keyframes animateNoti {
+    	from {opacity: 1;}
+    	to {opacity: 0;}
+	}
+	 #noti{
+		 z-index: 2;
+		 opacity: 1;
+		 position: absolute;
+		 animation-name: animateNoti;
+		 animation-duration: 3s;
+		 animation-timing-function: ease;
+	 }
 	</style>
 </head>
 <body>
@@ -81,7 +94,7 @@
 						";
 					}elseif($_SESSION['status'] == 3){
 						echo "
-							<div id='noti' class='alert alert-success col-md-12' role='alert'>
+							<div id='noti' class='alert alert-warning col-md-12' role='alert'>
 								<span>Delete image success</span>
 							</div>
 						";
@@ -97,6 +110,8 @@
 					unset($_SESSION['status']);
 				?>
 				</p>
+			</div>
+			<div style="margin-bottom:50px">
 			</div>
 			<div>
 				<form action="./action/action_upload.php" method="post" enctype="multipart/form-data">
@@ -173,7 +188,7 @@
 <script>
 setTimeout(function(){
 	document.getElementById("noti").style.display="none";
-}, 800);
+}, 3000);
 
 function delAll(){
 	let u_confirm = confirm("Are you sure to delete all images");

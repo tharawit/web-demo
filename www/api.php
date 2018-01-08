@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 // Call function condb
 require("action/condb.php");
 $con = new Condb();
-$result = $con->db_fetch("SELECT name, type, time FROM images");
+$result = $con->db_fetch_assoc("SELECT name, type, time FROM images");
 $con->db_close();
 $result = json_encode($result, JSON_PRETTY_PRINT);
 

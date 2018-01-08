@@ -36,5 +36,10 @@ class Condb {
 		$query = $this->db->query($sql);
 		return $query->fetchAll();
 	}
+
+	public function db_fetch_assoc($sql){
+		$query = $this->db->query($sql);
+		return $query->fetchAll(PDO::FETCH_ASSOC);
+	}
 }
 
